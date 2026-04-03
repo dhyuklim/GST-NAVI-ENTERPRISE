@@ -48,6 +48,45 @@
 - ECharts / Recharts
 - Tailwind CSS / shadcn/ui
 
+## Frontend/UI Agent 지시서 — 듀얼 테마 대시보드
+
+### 테마 전략
+- Theme A (daily): Apple/iOS 감성 — 일상 업무용 관리 화면
+- Theme B (presentation): Bloomberg Terminal 감성 — 전체화면 슬라이드쇼
+
+### Theme A 컬러 토큰
+bg: #fafaf8 | card: #fff | border: #e8e6e0
+accent: #1a1a1a | positive: #7a9e5a | warning: #c4956a
+radius: 10px | font: Inter/-apple-system | KPI: 28px/500
+
+### Theme B 컬러 토큰
+bg: #0a0a0a | card: #111 | border: #1f1f1f
+accent: #ff8c00 | positive: #00cc44 | negative: #ff4444
+radius: 2px | font: 'Courier New',monospace | KPI: 36px/700
+
+### 컴포넌트 규격
+KPI 카드
+  A: bg #fff border #e8e6e0 r:10px, 라벨 8px uppercase, 숫자 28px/500, progress h:2px
+  B: bg #111 border #1f1f1f r:2px, 라벨 7px uppercase #ff8c00, 숫자 36px/700, border-top 1.5px #ff8c00
+
+ECharts 테마
+  A: gridLine #ece9e2, axisLabel #aaa 9px, bar #1a1a1a, tooltip bg #fff
+  B: gridLine #1f1f1f, axisLabel #444 8px mono, bar #ff8c00, tooltip bg #0a0a0a border #ff8c00
+
+테이블
+  A: header bg #f5f5f3, row border #f0ede8, badge radius 20px
+  B: header bg #0f0f0f mono, row border #1a1a1a, 상태 텍스트 컬러만
+
+### 테마 전환
+- ThemeContext: 'daily' | 'presentation'
+- 트리거: URL ?mode=presentation 또는 단축키 Shift+P
+- Presentation: 사이드바 숨김, 100vw×100vh, 숫자 카운트업 애니메이션 on
+- Daily: 트랜지션 없음 (빠른 업무용)
+
+### LIVE/MOCK 표시
+  A: 소프트 뱃지 (bg #eaf3de dot #7a9e5a)
+  B: "■ LIVE" 오렌지 monospace 인라인
+
 #### Phase별 투입 시점
 - **Phase 0~4**: 지속 투입 (UI 주도)
 
