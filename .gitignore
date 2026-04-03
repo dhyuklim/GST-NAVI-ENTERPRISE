@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+coverage/
+.DS_Store
+*.log
+.env
+!.env.example
+data/
+*.xlsx
+*.pptx
+.vercel
+test-results/
+playwright-report/
